@@ -1,0 +1,13 @@
+# Ignorar arquivos desnecessários no build
+ABOUT THIS TEMPLATE.txt
+utils/
+*.zip
+*.eps
+.git/
+.gitignore
+README-DEPLOY.md
+CONFIGURAR-CLOUDFLARE.md
+comandos-rede-traefik.md
+fix-rede.md
+.vscode/
+

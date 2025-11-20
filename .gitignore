@@ -1,0 +1,26 @@
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Arquivos de configuração do editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos temporários
+tmp/
+temp/
+
+# Documentação de deploy (opcional - remover se quiser versionar)
+# CONFIGURAR-CLOUDFLARE.md
+# comandos-rede-traefik.md
+# fix-rede.md
+# README-DEPLOY.md
+
