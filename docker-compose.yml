@@ -8,21 +8,21 @@ services:
     labels:
       # Labels do Traefik
       - "traefik.enable=true"
+      - "traefik.docker.network=simulador_traefik_network"
       
       # Porta HTTP
+      - "traefik.http.routers.portfolio-http.rule=Host(`devgabrieldias.agentelegtech.pro`)"
+      - "traefik.http.routers.portfolio-http.entrypoints=web"
+      - "traefik.http.routers.portfolio-http.middlewares=redirect-to-https"
+      
+      # Porta HTTPS
       - "traefik.http.routers.portfolio.rule=Host(`devgabrieldias.agentelegtech.pro`)"
-      - "traefik.http.routers.portfolio.entrypoints=web"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.tls.certresolver=letsencryptresolver"
       - "traefik.http.services.portfolio.loadbalancer.server.port=80"
       
-      # Porta HTTPS (opcional - se tiver SSL configurado)
-      - "traefik.http.routers.portfolio-secure.rule=Host(`devgabrieldias.agentelegtech.pro`)"
-      - "traefik.http.routers.portfolio-secure.entrypoints=websecure"
-      - "traefik.http.routers.portfolio-secure.tls=true"
-      - "traefik.http.routers.portfolio-secure.tls.certresolver=letsencrypt"
-      
-      # Middleware para redirecionar HTTP para HTTPS (opcional)
-      - "traefik.http.middlewares.portfolio-redirect.redirectscheme.scheme=https"
-      - "traefik.http.routers.portfolio.middlewares=portfolio-redirect"
+      # Middleware para redirecionar HTTP para HTTPS
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
     
     networks:
       - portfolio_network
