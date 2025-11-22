@@ -315,7 +315,11 @@
         function appendMessage(role, text) {
             const div = document.createElement("div");
             div.classList.add("gt-chat-message", role === "user" ? "user" : "bot");
-            div.textContent = text;
+            if (role === "bot") {
+                div.innerHTML = text;
+            } else {
+                div.textContent = text;
+            }
             chatMessages.appendChild(div);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
@@ -383,7 +387,11 @@
         function appendMessage(role, text) {
             const div = document.createElement("div");
             div.classList.add("gt-chat-message", role === "user" ? "user" : "bot");
-            div.textContent = text;
+            if (role === "bot") {
+                div.innerHTML = text;
+            } else {
+                div.textContent = text;
+            }
             chatMobileMessages.appendChild(div);
             chatMobileMessages.scrollTop = chatMobileMessages.scrollHeight;
         }
