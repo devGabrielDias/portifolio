@@ -27,12 +27,8 @@
                 serviceSwiper = new Swiper(serviceSwiperElement, {
                     slidesPerView: 1,
                     spaceBetween: 30,
-                    loop: true,
+                    loop: false,
                     centeredSlides: true,
-                    autoplay: {
-                        delay: 4000,
-                        disableOnInteraction: false,
-                    },
                     pagination: {
                         el: serviceSwiperElement.querySelector('.swiper-pagination'),
                         clickable: true,
